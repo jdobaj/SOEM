@@ -67,6 +67,8 @@ Local Development
 
 ```sh
 sudo ip link add vetha1 type veth peer name vetha2
+ip link list
+#sudo ip link delete vetha1
    +------------+
    |            |
    |  Master A  |
