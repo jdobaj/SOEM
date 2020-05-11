@@ -46,3 +46,14 @@ Want to contribute to SOEM or SOES?
 If you want to contribute to SOEM or SOES you will need to sign a Contributor
 License Agreement and send it to us either by e-mail or by physical mail. More
 information is available in the [PDF](http://openethercatsociety.github.io/cla/cla_soem_soes.pdf).
+
+Running/Debugging
+-----------------
+
+* Allow **running** on Linux without requiring root privileges: From [link](http://squidarth.com/networking/systems/rc/2018/05/28/using-raw-sockets.html) granting capabilities to an executable (e.g. simple_test)
+
+```sh
+sudo setcap cap_net_admin,cap_net_raw=eip simple_test
+```
+
+* Enable **debugging** on Linux using VSC: Create a file *gdb-root* with the following content *pkexec /usr/bin/gdb "$@"* and in *lauch.json* specifiy *"miDebuggerPath": "${workspaceFolder}/gdb-root"*.
