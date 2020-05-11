@@ -7,7 +7,7 @@
             "request": "launch",
             // Resolved by CMake Tools:
             "program": "${command:cmake.launchTargetPath}",
-            "args": ["vetha1"],
+            "args": ["vetha1", "vetha2", "500"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/build/outdir",
             "environment": [],

@@ -50,6 +50,8 @@ information is available in the [PDF](http://openethercatsociety.github.io/cla/c
 Running/Debugging
 -----------------
 
+* Recommended VSC extension: CMake, CMake Tools
+
 * Allow **running** on Linux without requiring root privileges: From [link](http://squidarth.com/networking/systems/rc/2018/05/28/using-raw-sockets.html) granting capabilities to an executable (e.g. simple_test)
 
 ```sh
@@ -57,3 +59,23 @@ sudo setcap cap_net_admin,cap_net_raw=eip simple_test
 ```
 
 * Enable **debugging** on Linux using VSC: Create a file *gdb-root* with the following content *pkexec /usr/bin/gdb "$@"* and in *lauch.json* specifiy *"miDebuggerPath": "${workspaceFolder}/gdb-root"*.
+
+Local Development
+-----------------
+
+* Setup a virtual network connection (net1) between *vetha1* and *vetha2*
+
+```sh
+sudo ip link add vetha1 type veth peer name vetha2
+   +------------+
+   |            |
+   |  Master A  |
+   |            |
+   +---#----#---+
+       |    | vetha2
+vetha1 |    |
+       |    +------------------------+
+       |                             |
+       +-------- <no slaves> --------+
+                   (net1)
+```
